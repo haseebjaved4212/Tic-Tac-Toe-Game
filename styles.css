@@ -1,0 +1,174 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #ecf0f1;
+    --cell-color: #34495e;
+    --hover-color: #3498db;
+    --win-color: #2ecc71;
+    --text-color: #2c3e50;
+    --background-color: #ecf0f1;
+}
+
+[data-theme="dark"] {
+    --primary-color: #867c7c;
+    --secondary-color: #797272;
+    --cell-color: #2d2d2d;
+    --hover-color: #3d3d3d;
+    --win-color: #2ecc71;
+    --text-color: #ffffff;
+    --background-color: #121212;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+    transform: rotate(180deg);
+}
+
+.status {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+}
+
+.cell {
+    background-color: var(--cell-color);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: transform 0.2s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .cell {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cell:hover {
+    transform: scale(1.05);
+    background-color: var(--hover-color);
+}
+
+.cell.x::before {
+    content: 'X';
+    color: #e74c3c;
+    text-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+    animation: popIn 0.3s ease-out;
+}
+
+.cell.o::before {
+    content: 'O';
+    color: #3498db;
+    text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+    animation: popIn 0.3s ease-out;
+}
+
+[data-theme="dark"] .cell.x::before {
+    color: #ff6b6b;
+    text-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+}
+
+[data-theme="dark"] .cell.o::before {
+    color: #4dabf7;
+    text-shadow: 0 0 15px rgba(77, 171, 247, 0.7);
+}
+
+.restart-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.restart-button:hover {
+    transform: scale(1.05);
+    background-color: var(--hover-color);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+    70% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.winning-cell {
+    background-color: var(--win-color);
+    animation: winPulse 1s infinite;
+}
+
+@keyframes winPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+} 
