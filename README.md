@@ -130,7 +130,7 @@ That’s it! You can now play Tic Tac Toe.
 
 ## Credits
 
-- Developed by [Your Name]
+- Developed by [Hasee Javed]
 - Inspired by classic Tic Tac Toe and modern web design best practices.
 
 ## License
@@ -141,7 +141,7 @@ This project is open-source and free to use, modify, and distribute.
 
 ## DEMO 
 
-[ Play Game Here ]()
+[ Play Game Here ](https://haseebjaved4212.github.io/Tic-Tac-Toe-Game/)
 ---
 
  Enjoy playing and feel free to customize or contribute! 
